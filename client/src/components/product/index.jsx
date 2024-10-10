@@ -30,6 +30,24 @@ const Product = () => {
         id && setPreferenceId(id)
     }
 
+    const onSubmit = async (formData) => {
+        // Callback called when clicking Wallet Brick
+        // this is possible because the brick is a button
+        // at this time of submit, you must create the preference
+        console.log('onSubmit', formData);
+    };
+
+    const onError = async (error) => {
+        // callback called in all Brick errors
+        console.log('onError', error);
+    };
+
+    const onReady = async () => {
+        // Callback called when Brick is ready.
+        // Here you can hide loadings from your site, for example.  
+        console.log('onReady');
+    };
+
     return (
         <div className='card-product-container'>
             <div className='card-product'>
@@ -45,8 +63,20 @@ const Product = () => {
                     {
                         preferenceId &&
                         <Wallet
-                            initialization={{ preferenceId: preferenceId, redirectMode: 'modal' }}
-                            customization={{ texts: { valueProp: 'smart_option' } }}
+                            initialization={{
+                                preferenceId: preferenceId,
+                                redirectMode: 'blank' // self | blank | modal 
+                            }}
+                            customization={{
+                                texts: { valueProp: 'smart_option' },
+                                visual: {
+                                    buttonBackground: 'black', // default | black | blue | white
+                                }
+                            }}
+
+                            onSubmit={onSubmit}
+                            onReady={onReady}
+                            onError={onError}
                         />
                     }
                 </div>
