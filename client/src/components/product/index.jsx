@@ -43,7 +43,11 @@ const Product = () => {
                     <p className='card-text'>Price: $100</p>
                     <button onClick={handleBuy}>Buy now</button>
                     {
-                        preferenceId && <Wallet initialization={{ preferenceId: preferenceId }} customization={{ texts: { valueProp: 'smart_option' } }} />
+                        preferenceId &&
+                        <Wallet
+                            initialization={{ preferenceId: preferenceId, redirectMode: 'modal' }}
+                            customization={{ texts: { valueProp: 'smart_option' } }}
+                        />
                     }
                 </div>
             </div>
