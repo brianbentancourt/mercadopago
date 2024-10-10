@@ -30,3 +30,6 @@ npm install
 ```
 npm start
 ```
+
+>[!NOTE]
+>In both sides you need to create .env file
