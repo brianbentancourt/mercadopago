@@ -6,7 +6,7 @@ import axios from 'axios'
 const Product = () => {
     const [preferenceId, setPreferenceId] = useState('')
 
-    initMercadoPago('YOUR_PUBLIC_KEY', { locale: 'es-UY' });
+    initMercadoPago(import.meta.env.VITE_MERCADOPAGO_PUBLIC_KEY, { locale: 'es-UY' });
 
     const createPreference = async () => {
         try {
